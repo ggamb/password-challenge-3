@@ -53,7 +53,6 @@ function setLowerConfirm(){
   lowerConfirm = confirm("Would you like to add lower case characters?");
 };
 
-
 function setUpperConfirm(){
   console.log("b");
   upperConfirm = confirm("Would you like to add upper case characters?");
@@ -87,7 +86,6 @@ function passwordLength() {
   console.log(howLong);
   return howLong;
 };
-
 
 function generatePassword(){
   
