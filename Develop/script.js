@@ -10,20 +10,38 @@ const arrayOfRandoms = [
   getRandSpecial()
 ];
 
+var randonNum = 0;
+
 function getRandLower() {
-  return lowerChar[Math.floor(Math.random()*lowerChar.length)];
+  for(var i = 0; i < 1; i++){
+    randonNum = Math.floor(Math.random() * lowerChar.length);
+  }
+
+  return lowerChar[randonNum];
 };
 
 function getRandUpper() {
-  return randomUpper = upperChar[Math.floor(Math.random()*upperChar.length)];
+  for(var i = 0; i < 1; i++){
+    randonNum = Math.floor(Math.random() * upperChar.length);
+  }
+
+  return upperChar[randonNum];
 };
 
 function getRandNum() {
-  return numericInputs[Math.floor(Math.random()*numericInputs.length)];
+  for(var i = 0; i < 1; i++){
+    randonNum = Math.floor(Math.random() * numericInputs.length);
+  }
+
+  return numericInputs[randonNum];
 };
 
 function getRandSpecial() {
-  return specialChar[Math.floor(Math.random()*specialChar.length)];
+  for(var i = 0; i < 1; i++){
+    randonNum = Math.floor(Math.random() * specialChar.length);
+  }
+
+  return specialChar[randonNum];
 };
 
 /*
@@ -48,25 +66,36 @@ function passwordLength() {
 //passwordLength();
 //getCriteria();
 
-
-function passwordGenerator(){
+function generatePassword(){
 
   var passLength = passwordLength();
   var password = "";
 
-  /*
-  var lowerConfirm = confirm("Would you like to add lower case characters?");
-  var upperConfirm = confirm("Would you like to add upper case characters?");
-  var numberConfirm = confirm("Would you like to add numeric characters?");
-  var specialConfirm = confirm("Would you like to add special characters?");*/
-
-  for(var i = 0; i < passLength; i++){
-    password += lowerChar[Math.floor(Math.random()*lowerChar.length)];
-    console.log(password);
+  for(var i = 0; i < passLength; i++) {
+    var rand = Math.floor(Math.random()*arrayOfRandoms.length);
+    console.log("loop random num:" + rand);
+    switch(rand){
+      case 0:
+        password += getRandLower();
+        break;
+      case 1:
+        password += getRandUpper();
+        break;
+      case 2:
+        password += getRandNum();
+        break;
+      case 3:
+        password += getRandSpecial();
+        break;
+      default:
+        break;
+    }
   }
+  console.log(password);
+
 };
 
-passwordGenerator();
+//generatePassword();
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
