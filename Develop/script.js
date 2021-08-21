@@ -1,6 +1,4 @@
-// Assignment code here
-
-//Arrays used to select upper and lower case characters, numbers, and special characters
+//Arrays needed for the functions below to select upper and lower case characters, numbers, and special characters
 const lowerChar = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 const upperChar = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 const numericInputs = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
@@ -59,25 +57,20 @@ function getRandSpecial() {
 
 //Functions to get user input to add upper and lower case characters, numbers, and special characters
 function setLowerConfirm(){
-  console.log("a");
   lowerConfirm = confirm("Would you like to add lower case characters?");
 };
 
 function setUpperConfirm(){
-  console.log("b");
   upperConfirm = confirm("Would you like to add upper case characters?");
 };
 
 function setNumberConfirm(){
-  console.log("c");
   numConfirm = confirm("Would you like to add numerical characters?");
 };
 
 function setSpecialConfirm(){
-  console.log("d");
   specialConfirm = confirm("Would you like to add special case characters?");
 };
-
 
 //Function to ask user what they characters they would like in the password
 function getCriteria() {
@@ -98,8 +91,7 @@ function passwordLength() {
   return howLong;
 };
 
-
-//Function to generate the password
+//Function to generate the password based on user responses
 function generatePassword(){
   
   var passLength = passwordLength();
