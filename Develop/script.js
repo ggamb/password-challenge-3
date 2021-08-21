@@ -44,13 +44,32 @@ function getRandSpecial() {
   return specialChar[randonNum];
 };
 
-/*
+function setLowerConfirm(){
+  console.log("a");
+  return confirm("Would you like to add lower case characters?");
+};
+
+function setUpperConfirm(){
+  console.log("b");
+  return confirm("Would you like to add upper case characters?");
+};
+
+function setNumberConfirm(){
+  console.log("c");
+  return confirm("Would you like to add numeric characters?");
+};
+
+function setSpecialConfirm(){
+  console.log("d");
+  return confirm("Would you like to add special characters?");
+};
+
 function getCriteria() {
-  var lowerConfirm = confirm("Would you like to add lower case characters?");
-  var upperConfirm = confirm("Would you like to add upper case characters?");
-  var numberConfirm = confirm("Would you like to add numeric characters?");
-  var specialConfirm = confirm("Would you like to add special characters?");
-}*/
+  setLowerConfirm();
+  setUpperConfirm();
+  setNumberConfirm();
+  setSpecialConfirm();
+};
 
 function passwordLength() {
   var howLong = Number(prompt("How long would you like the password to be? Password must be between 8 and 128 characters."));
@@ -63,17 +82,16 @@ function passwordLength() {
   return howLong;
 };
 
-//passwordLength();
-//getCriteria();
 
 function generatePassword(){
+
+  getCriteria();
 
   var passLength = passwordLength();
   var password = "";
 
   for(var i = 0; i < passLength; i++) {
     var rand = Math.floor(Math.random()*arrayOfRandoms.length);
-    console.log("loop random num:" + rand);
     switch(rand){
       case 0:
         password += getRandLower();
@@ -92,7 +110,6 @@ function generatePassword(){
     }
   }
   console.log(password);
-
 };
 
 //generatePassword();
