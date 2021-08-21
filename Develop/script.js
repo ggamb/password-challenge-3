@@ -68,7 +68,6 @@ function setSpecialConfirm(){
   specialConfirm = confirm("Would you like to add special case characters?");
 };
 
-
 function getCriteria() {
   setLowerConfirm();
   setUpperConfirm();
@@ -82,8 +81,7 @@ function passwordLength() {
   while(howLong < 8 || howLong > 128 || howLong === null){
     howLong = Number(prompt("Incorrect input. How long would you like the password to be? Password must be between 8 and 128 characters."));
   }
-  
-  console.log(howLong);
+
   return howLong;
 };
 
@@ -91,12 +89,8 @@ function generatePassword(){
   
   var passLength = passwordLength();
   var password = "";
-  var count = 0;
 
-  if(count === 0){
-    getCriteria();
-    count++;
-  }
+  getCriteria();
 
   for(var i = 0; i < passLength; i++) {
     var rand = Math.floor(Math.random()*arrayOfRandoms.length);
