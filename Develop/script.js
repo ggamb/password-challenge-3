@@ -1,8 +1,12 @@
 // Assignment code here
+
+//Arrays used to select upper and lower case characters, numbers, and special characters
 const lowerChar = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 const upperChar = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 const numericInputs = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 const specialChar = [" ", "!", "\"", "#", "$", "%", "&", "\'", "(", ")", "*", "+", ",", "-", ".", "/", "<", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "}", "|", "~"];
+
+//Array used to select random upper and lower case characters, numbers, or special character
 const arrayOfRandoms = [
   getRandLower(),
   getRandUpper(),
@@ -10,12 +14,16 @@ const arrayOfRandoms = [
   getRandSpecial()
 ];
 
+
+//Global variables
 var randomNum = 0;
 var lowerConfirm = false;
 var upperConfirm = false;
 var numConfirm = false;
 var specialConfirm = false;
 
+
+//Functions to generate a new upper and lower case character, number, or special character based on the length of the array
 function getRandLower() {
   for(var i = 0; i < 1; i++){
     randomNum = Math.floor(Math.random() * lowerChar.length);
@@ -48,6 +56,8 @@ function getRandSpecial() {
   return specialChar[randomNum];
 };
 
+
+//Functions to get user input to add upper and lower case characters, numbers, and special characters
 function setLowerConfirm(){
   console.log("a");
   lowerConfirm = confirm("Would you like to add lower case characters?");
@@ -68,6 +78,8 @@ function setSpecialConfirm(){
   specialConfirm = confirm("Would you like to add special case characters?");
 };
 
+
+//Function to ask user what they characters they would like in the password
 function getCriteria() {
   setLowerConfirm();
   setUpperConfirm();
@@ -75,16 +87,19 @@ function getCriteria() {
   setSpecialConfirm();
 };
 
+//Function to get user input on length of the password
 function passwordLength() {
-  var howLong = Number(prompt("How long would you like the password to be? Password must be between 8 and 128 characters."));
+  var howLong = prompt("How long would you like the password to be? Password must be between 8 and 128 characters.");
 
-  while(howLong < 8 || howLong > 128 || howLong === null){
-    howLong = Number(prompt("Incorrect input. How long would you like the password to be? Password must be between 8 and 128 characters."));
+  while(howLong < 8 || howLong > 128 || howLong === null || isNaN(howLong)){
+    howLong = prompt("Incorrect input. How long would you like the password to be? Password must be between 8 and 128 characters.");
   }
 
   return howLong;
 };
 
+
+//Function to generate the password
 function generatePassword(){
   
   var passLength = passwordLength();
