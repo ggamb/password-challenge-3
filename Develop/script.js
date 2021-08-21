@@ -10,59 +10,65 @@ const arrayOfRandoms = [
   getRandSpecial()
 ];
 
-var randonNum = 0;
+var randomNum = 0;
+var lowerConfirm = false;
+var upperConfirm = false;
+var numConfirm = false;
+var specialConfirm = false;
 
 function getRandLower() {
   for(var i = 0; i < 1; i++){
-    randonNum = Math.floor(Math.random() * lowerChar.length);
+    randomNum = Math.floor(Math.random() * lowerChar.length);
   }
 
-  return lowerChar[randonNum];
+  return lowerChar[randomNum];
 };
 
 function getRandUpper() {
   for(var i = 0; i < 1; i++){
-    randonNum = Math.floor(Math.random() * upperChar.length);
+    randomNum = Math.floor(Math.random() * upperChar.length);
   }
 
-  return upperChar[randonNum];
+  return upperChar[randomNum];
 };
 
 function getRandNum() {
   for(var i = 0; i < 1; i++){
-    randonNum = Math.floor(Math.random() * numericInputs.length);
+    randomNum = Math.floor(Math.random() * numericInputs.length);
   }
 
-  return numericInputs[randonNum];
+  return numericInputs[randomNum];
 };
 
 function getRandSpecial() {
   for(var i = 0; i < 1; i++){
-    randonNum = Math.floor(Math.random() * specialChar.length);
+    randomNum = Math.floor(Math.random() * specialChar.length);
   }
 
-  return specialChar[randonNum];
+  return specialChar[randomNum];
 };
 
 function setLowerConfirm(){
   console.log("a");
-  return confirm("Would you like to add lower case characters?");
+  lowerConfirm = confirm("Would you like to add lower case characters?");
 };
+
 
 function setUpperConfirm(){
   console.log("b");
-  return confirm("Would you like to add upper case characters?");
+  upperConfirm = confirm("Would you like to add upper case characters?");
 };
 
 function setNumberConfirm(){
   console.log("c");
-  return confirm("Would you like to add numeric characters?");
+  numConfirm = confirm("Would you like to add numerical characters?");
 };
 
 function setSpecialConfirm(){
   console.log("d");
-  return confirm("Would you like to add special characters?");
+  specialConfirm = confirm("Would you like to add special case characters?");
 };
+
 
 function getCriteria() {
   setLowerConfirm();
@@ -84,35 +90,59 @@ function passwordLength() {
 
 
 function generatePassword(){
-
-  getCriteria();
-
+  
   var passLength = passwordLength();
   var password = "";
+  var count = 0;
+
+  if(count === 0){
+    getCriteria();
+    count++;
+  }
 
   for(var i = 0; i < passLength; i++) {
     var rand = Math.floor(Math.random()*arrayOfRandoms.length);
     switch(rand){
       case 0:
-        password += getRandLower();
-        break;
+        if(lowerConfirm){
+          password += getRandLower();
+          break;
+        } else {
+          i--;
+          break;
+        }
       case 1:
-        password += getRandUpper();
-        break;
+        if(upperConfirm){
+          password += getRandUpper();
+          break;
+        } else {
+          i--;
+          break;
+        }
       case 2:
-        password += getRandNum();
-        break;
+        if(numConfirm){
+          password += getRandNum();
+          break;
+        } else {
+          i--;
+          break;
+        }
       case 3:
-        password += getRandSpecial();
-        break;
+        if(specialConfirm){
+          password += getRandSpecial();
+          break;
+        } else {
+          i--;
+          break;
+        }
       default:
+        i--;
         break;
     }
   }
   console.log(password);
+  return password;
 };
-
-//generatePassword();
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
