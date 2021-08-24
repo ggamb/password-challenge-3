@@ -23,33 +23,26 @@ var specialConfirm = false;
 
 //Functions to generate a new upper and lower case character, number, or special character based on the length of the array
 function getRandLower() {
-  for(var i = 0; i < 1; i++){
-    randomNum = Math.floor(Math.random() * lowerChar.length);
-  }
 
-  return lowerChar[randomNum];
+  randomNum = Math.floor(Math.random() * lowerChar.length);
+
+  return lowerChar[Math.floor(Math.random() * lowerChar.length)];
 };
 
 function getRandUpper() {
-  for(var i = 0; i < 1; i++){
-    randomNum = Math.floor(Math.random() * upperChar.length);
-  }
+  randomNum = Math.floor(Math.random() * upperChar.length);
 
   return upperChar[randomNum];
 };
 
 function getRandNum() {
-  for(var i = 0; i < 1; i++){
-    randomNum = Math.floor(Math.random() * numericInputs.length);
-  }
+  randomNum = Math.floor(Math.random() * numericInputs.length);
 
   return numericInputs[randomNum];
 };
 
 function getRandSpecial() {
-  for(var i = 0; i < 1; i++){
-    randomNum = Math.floor(Math.random() * specialChar.length);
-  }
+  randomNum = Math.floor(Math.random() * specialChar.length);
 
   return specialChar[randomNum];
 };
@@ -101,6 +94,8 @@ function generatePassword(){
 
   for(var i = 0; i < passLength; i++) {
     var rand = Math.floor(Math.random()*arrayOfRandoms.length);
+    var character;
+
     switch(rand){
       case 0:
         if(lowerConfirm){
@@ -139,7 +134,6 @@ function generatePassword(){
         break;
     }
   }
-  console.log(password);
   return password;
 };
 
