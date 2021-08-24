@@ -12,14 +12,12 @@ const arrayOfRandoms = [
   getRandSpecial()
 ];
 
-
 //Global variables
 var randomNum = 0;
 var lowerConfirm = false;
 var upperConfirm = false;
 var numConfirm = false;
 var specialConfirm = false;
-
 
 //Functions to generate a new upper and lower case character, number, or special character based on the length of the array
 function getRandLower() {
@@ -86,15 +84,21 @@ function passwordLength() {
 //Function to generate the password based on user responses
 function generatePassword(){
   
+  //Sets passLength equal to the user's input
   var passLength = passwordLength();
   var password = "";
 
+  //Function asks user what charcter criteria they would like to use in their password
   getCriteria();
 
+  //Loop iterates as many times as user wants based on input above
   for(var i = 0; i < passLength; i++) {
+    //Chooses a random number between 0-3 to be used in the switch below
     var rand = Math.floor(Math.random()*arrayOfRandoms.length);
-    var character;
 
+    /*Switch picks a random character based on the user's character criteria
+    Switch will only add characters to the password string if they accepted the character criteria for the chosen random switch case
+    Otherwise, no character is added to the password string and the loop is decremented to ensure that the password length remains the same*/
     switch(rand){
       case 0:
         if(lowerConfirm){
