@@ -96,7 +96,7 @@ function generatePassword(){
     //Chooses a random number between 0-3 to be used in the switch below
     var rand = Math.floor(Math.random()*arrayOfRandoms.length);
 
-    /*Switch picks a random character based on the user's character criteria
+    /*Switch picks a random character based only on the user's character criteria
     Switch will only add characters to the password string if they accepted the character criteria for the chosen random switch case
     Otherwise, no character is added to the password string and the loop is decremented to ensure that the password length remains the same*/
     switch(rand){
