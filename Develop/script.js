@@ -23,10 +23,9 @@ var specialConfirm = false;
 
 //Functions to generate a new upper and lower case character, number, or special character based on the length of the array
 function getRandLower() {
-
   randomNum = Math.floor(Math.random() * lowerChar.length);
 
-  return lowerChar[Math.floor(Math.random() * lowerChar.length)];
+  return lowerChar[randomNum];
 };
 
 function getRandUpper() {
